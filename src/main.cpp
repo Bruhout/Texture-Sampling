@@ -8,8 +8,8 @@
 #define STB_IMAGE_WRITE_IMPLEMENTATION
 #include "../include/stb_image_write.h"
 
-
-bool GetBCoords(Vec3D v1 , Vec3D v2 , Vec3D v3 , Vec3D point , Vec3D* write);
+//Given the vertices of a trangle and a point within normal image space, this function will write out the barycentric coordinates of the point with respect to that triangle
+bool GetBarycentricCoords(Vec3D v1 , Vec3D v2 , Vec3D v3 , Vec3D point , Vec3D* write);
 
 void DrawTriangle(
     Vec3D p1 , Vec3D p2 , Vec3D p3,
@@ -24,14 +24,14 @@ int main(void)
     unsigned char* textureImage = stbi_load("container.jpg" , &textureWidth , &textureHeight , &channels , 0);
     int textureSize = textureWidth * textureHeight * channels;
     
-    // if (textureImage == NULL)
-    // {
-    //     std::cout << "Texture not loaded\n";
-    // }
-    // else
-    // {
-    //     std::cout << "T Width:" << textureWidth << "\nT Height:" << textureHeight << "\nT Channels:" << channels << '\n';  
-    // }
+    if (textureImage == NULL)
+    {
+        std::cout << "Texture not loaded\n";
+    }
+    else
+    {
+        std::cout << "T Width:" << textureWidth << "\nT Height:" << textureHeight << "\nT Channels:" << channels << '\n';  
+    }
     
     int imageHeight = 512;
     int imageWidth = 512;
@@ -78,10 +78,6 @@ void DrawTriangle(
     if (p2.y > p3.y)
         std::swap(p2 , p3);
 
-    p1.PrintVec();
-    p2.PrintVec();
-    p3.PrintVec();
-
     //y_diff is always positive
     //using the sign of slope value we can find the side of p1 the vertices are on
     int y_diff = p2.y - p1.y;
@@ -101,12 +97,11 @@ void DrawTriangle(
             x_offset_high = x_offset_low;
             x_offset_low = temp;
         }
-        // for (int j=0 ; j < image_width ; j++)
         for (int j = x_offset_low + p1.x ; j < x_offset_high + p1.x ; j++)
         {
             //Current pixel coords in normal screen space
             Vec3D bCoords;
-            GetBCoords(
+            GetBarycentricCoords(
                 p1.Normalize(image_width , image_height),
                 p2.Normalize(image_width , image_height),
                 p3.Normalize(image_width , image_height),
@@ -124,7 +119,7 @@ void DrawTriangle(
     }
 }
 
-bool GetBCoords(Vec3D v1 , Vec3D v2 , Vec3D v3 , Vec3D point , Vec3D* write)
+bool GetBarycentricCoords(Vec3D v1 , Vec3D v2 , Vec3D v3 , Vec3D point , Vec3D* write)
 {
     Vec3D edge12 = v2 - v1;
     Vec3D edge23 = v3 - v2;
