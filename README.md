@@ -13,4 +13,6 @@ We will use this library to read the texture image and write out out output imag
 
 
 This is the image we will be using as our texture. Its is a `.jpg` image of a crate with a `512 x 512` resolution. You can find this image in this repo with the name `container.jpg`.
+
+
 ![container](https://github.com/Bruhout/Texture-Sampling/assets/147948392/80101905-f1ec-4eb0-aeb8-5d95ab295699)
