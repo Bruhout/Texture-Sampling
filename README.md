@@ -10,3 +10,7 @@ The sphere in this image is really just an infinitely smooth spherical object wi
 The only dependancy is stb_image lib, which you can get from [here](https://github.com/nothings/stb/tree/master). Simply go and download the `stb_image.h` and `stb_image_write.h`. Or you could get it from the `include` directory in this repo, but do pay the original pay a vist, because this makes our job a lot easier. Than trying to write `.bmp` or `.ppm` images ourselves, let alone all the compressed formats like `.jpg / .png`.
 
 We will use this library to read the texture image and write out out output image, to see what we got.
+
+
+This is the image we will be using as our texture. Its is a `.jpg` image of a crate with a `512 x 512` resolution. You can find this image in this repo with the name `container.jpg`.
+![container](https://github.com/Bruhout/Texture-Sampling/assets/147948392/80101905-f1ec-4eb0-aeb8-5d95ab295699)
