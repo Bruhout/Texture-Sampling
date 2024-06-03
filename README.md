@@ -7,5 +7,5 @@ If you have ever played a video game, you have seen the use of textures. Its lik
 
 The sphere in this image is really just an infinitely smooth spherical object with an image "wood" wrapped over the sphere. This repository contains some code for you to understand this technique in the case of a triangle.
 
-The only dependancy is stb_image lib, which you can get from [here](here https://github.com/nothings/stb/tree/master). Simply go and download the `stb_image.h` and `stb_image_write.h`.
+The only dependancy is stb_image lib, which you can get from [here](https://github.com/nothings/stb/tree/master). Simply go and download the `stb_image.h` and `stb_image_write.h`.
 We will use this library to read the texture image and write out out output image, to see what we got.
