@@ -52,7 +52,7 @@ int main(void)
     Vec3D v2 = {round(0.1f * imageWidth) , round(0.75f * imageHeight) , 0};
     Vec3D v3 = {round(0.9f * imageWidth) , round(0.75f * imageHeight) , 0};
 
-    Vec3D tv1 = {0.5f , 0 , 0};
+    Vec3D tv1 = {0.0f , 0 , 0};
     Vec3D tv2 = {0 , 1.0f , 0};
     Vec3D tv3 = {1.0f , 1.0f , 0};
 
@@ -81,39 +81,44 @@ void DrawTriangle(
     {
         std::cout << "Texture coordinates must be between 0 and 1\n";
     }
-    // vertices are given as integer coordinates of the pixel they are nearest to
+    // vertices are given as integer coordinates (pixel coordinates)
     // texture coords are given as floats in normal texture space [0 , 1]
 
-    // First, we sort the vertices based on y coordinate
-    if (p1.y > p2.y)
+    // We sort the vertices based on y coordinate
+    // p1 is the highest, p3 is the lowest
+    if (p1.y > p2.y) {
         std::swap(p1 , p2);
+    }
 
-    if (p1.y > p3.y)                    // p1 is the top vertex (with the lowest y coordinate)
-        std::swap(p1 , p3);             // p2 is between p1 and p3
-                                        // p3 has the lowest y coordinate            
-    if (p2.y > p3.y)
+    if (p1.y > p3.y) {
+        std::swap(p1 , p3);
+    }             
+
+    if (p2.y > p3.y) {
         std::swap(p2 , p3);
+    }
 
 
     //y_diff is always positive
-    //using the sign of slope value we can find the side of p1 the vertices are on
     int y_diff = p2.y - p1.y;
-    float slope_2 = y_diff / (p2.x - p1.x);
-    float slope_3 = y_diff / (p3.x - p1.x);
+    float slope_a = y_diff / (p2.x - p1.x);
+    float slope_b = y_diff / (p3.x - p1.x);
+    
+    // Slope_a nd slope_b are the slopes of the two sides going down from p1
 
     for (int i=0 ; i<y_diff ; i++)
     {
-        //these can be negative as well
-        int x_offset_low = (int)(i / slope_2);
-        int x_offset_high = (int)(i / slope_3);
+        int x_offset_low = (int)(i / slope_a);
+        int x_offset_high = (int)(i / slope_b);
 
-        // make sure the low one is to the left of the high one
+        // Make sure x_offset_low is the offset to the leftmost vertex
         if (x_offset_low > x_offset_high)
         {
             float temp = x_offset_high;
             x_offset_high = x_offset_low;
             x_offset_low = temp;
         }
+        
         for (int j = x_offset_low + p1.x ; j < x_offset_high + p1.x ; j++)
         {
             //Current pixel coords in normal screen space
@@ -146,7 +151,6 @@ bool GetBarycentricCoords(Vec3D v1 , Vec3D v2 , Vec3D v3 , Vec3D point , Vec3D* 
 
     float triArea = 0.5f * (edge23 - edge23.ProjectOnto(edge12)).Magnitude() * edge12.Magnitude();
 
-
     Vec3D pointDisp = point - v1;
     float perp = (pointDisp - pointDisp.ProjectOnto(edge12)).Magnitude();
     float c3 = (0.5f * perp * edge12.Magnitude()) / triArea;
@@ -163,12 +167,9 @@ bool GetBarycentricCoords(Vec3D v1 , Vec3D v2 , Vec3D v3 , Vec3D point , Vec3D* 
     write->y = c2;
     write->z = c3;
 
-    if (c1 + c2 + c3 == 1)
-    {
+    if (c1 + c2 + c3 == 1) {
         return true;
-    }
-    else
-    {
+    } else {
         return false;
     }
 }
