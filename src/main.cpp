@@ -46,9 +46,11 @@ int main(void)
         *(pix+2) = 50;
     }
 
-    Vec3D v1 = {(int)(0.5 * imageWidth) , (int)(0.25f * imageHeight) , 0};
-    Vec3D v2 = {(int)(0.1f * imageWidth) , (int)(0.75f * imageHeight) , 0};
-    Vec3D v3 = {(int)(0.9f * imageWidth) , (int)(0.75f * imageHeight) , 0};
+    // vertices are given as floats in normal screen space [-1 , 1] and then converted to pixel coordinates for passing to DrawTriangle(...)
+    
+    Vec3D v1 = {round(0.5f * imageWidth) , round(0.25f * imageHeight) , 0};
+    Vec3D v2 = {round(0.1f * imageWidth) , round(0.75f * imageHeight) , 0};
+    Vec3D v3 = {round(0.9f * imageWidth) , round(0.75f * imageHeight) , 0};
 
     Vec3D tv1 = {0.5f , 0 , 0};
     Vec3D tv2 = {0 , 1.0f , 0};
@@ -66,7 +68,7 @@ void DrawTriangle(
     unsigned char* textureImage , int texture_width, int texture_height
 )
 {
-    // vertices are given as floats in normal screen space [-1 , 1]
+    // vertices are given as integer coordinates of the pixel they are nearest to
     // texture coords are given as floats in normal texture space [0 , 1]
     // First, we sort the vertices based on y coordinate
     if (p1.y > p2.y)
