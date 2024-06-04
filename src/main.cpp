@@ -100,17 +100,19 @@ void DrawTriangle(
         for (int j = x_offset_low + p1.x ; j < x_offset_high + p1.x ; j++)
         {
             //Current pixel coords in normal screen space
+            //The center of the pixel is used as the point of reference
             Vec3D bCoords;
             GetBarycentricCoords(
-                p1.Normalize(image_width , image_height),
-                p2.Normalize(image_width , image_height),
-                p3.Normalize(image_width , image_height),
-                Vec3D(j / (float)image_width , (i+p1.y) / image_height , 0),
+                p1.Normalize(image_width , image_height),   //
+                p2.Normalize(image_width , image_height),   // 
+                p3.Normalize(image_width , image_height),   //
+                Vec3D(j / (float)image_width + (0.5/image_width) , (i+p1.y) / image_height + (0.5/image_height), 0),
                 &bCoords
             );
 
-            int textelX = ((tp1.x * bCoords.x) + (tp2.x * bCoords.y) + (tp3.x * bCoords.z)) * texture_width;
-            int textelY = ((tp1.y * bCoords.x) + (tp2.y * bCoords.y) + (tp3.y * bCoords.z)) * texture_height;
+            // Rounding off the result of the calculation is very important because the the result is a float coordinates which is converted to int
+            int textelX = round(((tp1.x * bCoords.x) + (tp2.x * bCoords.y) + (tp3.x * bCoords.z)) * texture_width);  
+            int textelY = round(((tp1.y * bCoords.x) + (tp2.y * bCoords.y) + (tp3.y * bCoords.z)) * texture_height);
 
             *(outputImage + ((i + (int)p1.y)* image_width + j) * channels) = *(textureImage + (textelY*texture_width + textelX) * channels);
             *(outputImage + 1 + ((i + (int)p1.y) * image_width + j) * channels) = *(textureImage + 1 + (textelY*texture_width + textelX) * channels);
