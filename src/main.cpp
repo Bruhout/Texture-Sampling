@@ -102,7 +102,7 @@ void DrawTriangle(
     //y_diff is always positive
     int y_diff = p2.y - p1.y;
     float slope_a = y_diff / (p2.x - p1.x);
-    float slope_b = y_diff / (p3.x - p1.x);
+    float slope_b = (p3.y - p1.y) / (p3.x - p1.x);
     
     // Slope_a nd slope_b are the slopes of the two sides going down from p1
 
