@@ -43,7 +43,7 @@ In this case, the three texture coordinates for our three vertices are as follow
 > (0 , 1)
 > (1 , 1)
 
-You can see this visualised in `Image 4`. If you look back at `image 2`, you will notice that the part of the texture that is covered by our triangle (the triangle formed from texture coordinates) will be projected on the triangle. Lets try changing the texture coordinates to see what happens.
+You can see this visualised in `Image 4`. If you look back at `image 3`, you will notice that the part of the texture that is covered by our triangle (the triangle formed from texture coordinates) will be projected on the triangle. Lets try changing the texture coordinates to see what happens.
 
 
 
