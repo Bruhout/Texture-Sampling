@@ -68,17 +68,32 @@ void DrawTriangle(
     unsigned char* textureImage , int texture_width, int texture_height
 )
 {
+    if (
+        tp1.x < 0 || tp1.x > 1 ||
+        tp1.y < 0 || tp1.y > 1 ||
+
+        tp2.x < 0 || tp2.x > 1 ||
+        tp2.y < 0 || tp2.y > 1 ||
+        
+        tp3.x < 0 || tp3.x > 1 ||
+        tp3.y < 0 || tp3.y > 1
+    )
+    {
+        std::cout << "Texture coordinates must be between 0 and 1\n";
+    }
     // vertices are given as integer coordinates of the pixel they are nearest to
     // texture coords are given as floats in normal texture space [0 , 1]
+
     // First, we sort the vertices based on y coordinate
     if (p1.y > p2.y)
         std::swap(p1 , p2);
 
-    if (p1.y > p3.y)
-        std::swap(p1 , p3);
-
+    if (p1.y > p3.y)                    // p1 is the top vertex (with the lowest y coordinate)
+        std::swap(p1 , p3);             // p2 is between p1 and p3
+                                        // p3 has the lowest y coordinate            
     if (p2.y > p3.y)
         std::swap(p2 , p3);
+
 
     //y_diff is always positive
     //using the sign of slope value we can find the side of p1 the vertices are on
