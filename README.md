@@ -1,9 +1,9 @@
-# Texture-Sampling
+![image](https://github.com/Bruhout/Texture-Sampling/assets/147948392/41cda916-a808-4979-8779-12e37d83811f)# Texture-Sampling
 ### This is an explanation of how an image texture can be applied upon a triangle in the rasterization rendering algorithm.
 
 If you have ever played a video game, you have seen the use of textures. Its like wrapping and image on top of you geometry, to make it look likes it has more detail that it actually does. Instead of realistically simulating how objects are shaded and how objects interact with them and the tiny bumps and ridges that are otherwise required to make a convincing illusion of a "surface". Take this for example.
 
-![wooden](https://github.com/Bruhout/Texture-Sampling/assets/147948392/cfabe6f6-dd46-4696-9555-cd9aa858fa8c)
+![wooden](https://raw.githubusercontent.com/Bruhout/Texture-Sampling/main/images/wooden.jpg)
 
 Image 1: Texture examples
 
@@ -23,13 +23,13 @@ Image 2: Container texture
 
 This is what we will be creating by the end of this, and triangle with the crate image on it, looking really out of place on the gray background.
 
-![output](https://github.com/Bruhout/Texture-Sampling/assets/147948392/330eb043-2848-4afe-a42c-6d6fd8130bfe)
+![output](https://raw.githubusercontent.com/Bruhout/Texture-Sampling/main/images/output.png)
 
 Image 3: A peek at the final result
 
 ## Texture coordinate mapping
 
-![Ok_ManimCE_v0 18 1](https://github.com/Bruhout/Texture-Sampling/assets/147948392/269be59f-5e51-4fc4-8434-e772d8bdb4e2)
+![Ok_ManimCE_v0 18 1](https://raw.githubusercontent.com/Bruhout/Texture-Sampling/main/images/Ok_ManimCE_v0.18.1.png)
 
 Image 4: The texture coordinates visualised
 
@@ -48,8 +48,8 @@ You can see this visualised in `Image 4`. If you look back at `image 3`, you wil
 If this way of mapping textures onto the image seems kinda long and weird, dont worry, it will make sense when we cover how the textures are actually sampled.
 
 Images 5 , 6: Different texture coordinates and the result
-![Ok_ManimCE_v0 18 1](https://github.com/Bruhout/Texture-Sampling/assets/147948392/56ff1141-bc89-463e-a054-cd10aaffee04)
-![output](https://github.com/Bruhout/Texture-Sampling/assets/147948392/b8a2ee7b-618d-4fda-b83b-fe0992a9c45f)
+![Ok_ManimCE_v0 18 1](https://raw.githubusercontent.com/Bruhout/Texture-Sampling/main/images/scene_ManimCE_v0.18.1.png)
+![output](https://raw.githubusercontent.com/Bruhout/Texture-Sampling/main/images/example.png)
 
 
 ## Triangle Filling : ScanLine Algorithm
