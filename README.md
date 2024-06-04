@@ -55,6 +55,9 @@ Images 5 , 6: Different texture coordinates and the result
 ## Triangle Filling : ScanLine Algorithm
 First we need to actually draw the triangle. Given 3 vertices, the scanline algorithm will draw us a traingle on the screen. Lets see how this might work. The full code for the scanline algorithm can be found inside the `scanline` dir.
 
+Here's a visualisation of how the algorithm actually works. It goes through every row of pixels and color all the pixel that fall inside the triangle.
+
+![visual](https://github.com/Bruhout/Texture-Sampling/blob/main/scanline.mp4)
 
 
 
