@@ -43,7 +43,13 @@ In this case, the three texture coordinates for our three vertices are as follow
 > (0 , 1)
 > (1 , 1)
 
-You can see this visualised in `Image 4`. If you look back at `image 3`, you will notice that the part of the texture that is covered by our triangle (the triangle formed from texture coordinates) will be projected on the triangle. Lets try changing the texture coordinates to see what happens.
+You can see this visualised in `Image 4`. If you look back at `image 3`, you will notice that the part of the texture that is covered by our triangle (the triangle formed from texture coordinates) will be projected on the triangle.
+
+If this way of mapping textures onto the image seems kinda long and weird, dont worry, it will make sense when we cover how the textures are actually sampled.
+
+Images 5 , 6: Different texture coordinates and the result
+![Ok_ManimCE_v0 18 1](https://github.com/Bruhout/Texture-Sampling/assets/147948392/56ff1141-bc89-463e-a054-cd10aaffee04)
+![output](https://github.com/Bruhout/Texture-Sampling/assets/147948392/b8a2ee7b-618d-4fda-b83b-fe0992a9c45f)
 
 
 
