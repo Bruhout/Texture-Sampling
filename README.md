@@ -57,7 +57,7 @@ First we need to actually draw the triangle. Given 3 vertices, the scanline algo
 
 Here's a visualisation of how the algorithm actually works. It goes through every row of pixels and color all the pixel that fall inside the triangle.
 
-![visual](https://github.com/Bruhout/Texture-Sampling/blob/main/scanline.mp4)
+https://youtu.be/NbRdiLCBmbo
 
 
 
