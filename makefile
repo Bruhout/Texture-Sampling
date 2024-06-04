@@ -6,3 +6,6 @@ build: src/main.cpp build/vec3d.o
 
 build/vec3d.o: src/vec3d.cpp
 	$(CC) -o build/vec3d.o src/vec3d.cpp -c -g
+
+scanline: scanline.cpp
+	g++ -o scanline scanline.cpp -g
