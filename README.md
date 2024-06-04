@@ -21,5 +21,10 @@ This is what we will be creating by the end of this, and triangle with the crate
 
 ![output](https://github.com/Bruhout/Texture-Sampling/assets/147948392/330eb043-2848-4afe-a42c-6d6fd8130bfe)
 
+## Texture coordinate mapping
+
+![Ok_ManimCE_v0 18 1](https://github.com/Bruhout/Texture-Sampling/assets/147948392/269be59f-5e51-4fc4-8434-e772d8bdb4e2)
+
+
 
 
