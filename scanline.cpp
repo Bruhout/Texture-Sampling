@@ -71,7 +71,7 @@ void FillTriangle(int x1 , int y1 , int x2 , int y2 , int x3 , int y3 , unsigned
     //y_diff is always positive
     int y_diff = y2 - y1;
     float slope_a = y_diff / (float)(x2 - x1);
-    float slope_b = y_diff / (float)(x3 - x1);
+    float slope_b = (y3 - y1) / (float)(x3 - x1);
 
     // The two slope values correspond to the slopes of the 2 sides of the triangle going down from {x1 , y1}
 
