@@ -17,7 +17,9 @@ This is the image we will be using as our texture. Its is a `.jpg` image of a cr
 
 ![container](https://github.com/Bruhout/Texture-Sampling/assets/147948392/80101905-f1ec-4eb0-aeb8-5d95ab295699)
 
-This is what we will be creating by the end of this, and triangle with the crate image on it, looking really out of place.
+This is what we will be creating by the end of this, and triangle with the crate image on it, looking really out of place on the gray background.
 
-![output](https://github.com/Bruhout/Texture-Sampling/assets/147948392/d0ec080c-7480-4e51-be18-b4b22a20942e)
+![output](https://github.com/Bruhout/Texture-Sampling/assets/147948392/330eb043-2848-4afe-a42c-6d6fd8130bfe)
+
+
 
