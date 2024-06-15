@@ -6,29 +6,29 @@
 class Vec3D
 {
 public:
-    float x , y , z;
+    double x , y , z;
 
     Vec3D();
 
-    Vec3D(float X , float Y , float Z); 
+    Vec3D(double X , double Y , double Z); 
 
     Vec3D operator-(Vec3D vec2);
 
     Vec3D operator+(Vec3D vec2);
 
-    Vec3D operator*(float scalar);
+    Vec3D operator*(double scalar);
 
-    Vec3D operator/(float scalar);
+    Vec3D operator/(double scalar);
 
-    float MagnitudeSq();
+    double MagnitudeSq();
 
-    float Magnitude();
+    double Magnitude();
 
-    float DistanceFrom(Vec3D refPoint);
+    double DistanceFrom(Vec3D refPoint);
 
     Vec3D CrossProduct(Vec3D vec2);
 
-    float DotProduct(Vec3D vec2);
+    double DotProduct(Vec3D vec2);
 
     Vec3D GetUnitVec();
 

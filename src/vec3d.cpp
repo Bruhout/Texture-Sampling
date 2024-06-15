@@ -8,7 +8,7 @@ Vec3D::Vec3D()
       z(0) 
 {}
 
-Vec3D::Vec3D(float X , float Y , float Z)
+Vec3D::Vec3D(double X , double Y , double Z)
     : x(X),
       y(Y),
       z(Z) 
@@ -36,7 +36,7 @@ Vec3D Vec3D::operator+(Vec3D vec2)
     return subVec;
 }
 
-Vec3D Vec3D::operator*(float scalar)
+Vec3D Vec3D::operator*(double scalar)
 {
     Vec3D subVec = {
         x * scalar,
@@ -47,7 +47,7 @@ Vec3D Vec3D::operator*(float scalar)
     return subVec;
 }
 
-Vec3D Vec3D::operator/(float scalar)
+Vec3D Vec3D::operator/(double scalar)
 {
     Vec3D subVec = {
         x / scalar,
@@ -59,17 +59,17 @@ Vec3D Vec3D::operator/(float scalar)
 }
 
 
-float Vec3D::MagnitudeSq()
+double Vec3D::MagnitudeSq()
 {
     return pow(x, 2) + pow(y , 2) + pow(z, 2);
 }
 
-float Vec3D::Magnitude()
+double Vec3D::Magnitude()
 {
     return pow(MagnitudeSq() , 0.5);
 }
 
-float Vec3D::DistanceFrom(Vec3D refPoint)
+double Vec3D::DistanceFrom(Vec3D refPoint)
 {
     return ((refPoint - *this).Magnitude());
 }
@@ -84,7 +84,7 @@ Vec3D Vec3D::CrossProduct(Vec3D vec2)
     return productVec;
 }
 
-float Vec3D::DotProduct(Vec3D vec2)
+double Vec3D::DotProduct(Vec3D vec2)
 {
     return (x * vec2.x) + (y * vec2.y) + (z * vec2.z);
 }
@@ -92,7 +92,7 @@ float Vec3D::DotProduct(Vec3D vec2)
 Vec3D Vec3D::GetUnitVec()
 {
     Vec3D origin = {0,0,0};
-    float mag = DistanceFrom(origin);
+    double mag = DistanceFrom(origin);
     Vec3D unitVec = {
         x / mag,
         y / mag,
@@ -104,7 +104,7 @@ Vec3D Vec3D::GetUnitVec()
 
 Vec3D Vec3D::ProjectOnto(Vec3D ontoVec)
 {
-    float scaleFactor = DotProduct(ontoVec) / ontoVec.Magnitude();
+    double scaleFactor = DotProduct(ontoVec) / ontoVec.Magnitude();
 
     Vec3D projVec = ontoVec.GetUnitVec() * scaleFactor;
 
