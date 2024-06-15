@@ -52,21 +52,7 @@ Images 5 , 6: Different texture coordinates and the result
 ![output](https://raw.githubusercontent.com/Bruhout/Texture-Sampling/main/images/example.png)
 
 
-## Triangle Filling : ScanLine Algorithm
-First we need to actually draw the triangle. Given 3 vertices, the scanline algorithm will draw us a traingle on the screen. Lets see how this might work. The full code for the scanline algorithm can be found inside the `scanline` dir.
+## Triangle Filling : Threee methods
+There are 3 familiar ways of drawing a triangle to the raster screen. I have covered each one in depth in blog post on my personal blog, which I will link to very soon. For this project, we will be using the **Barycentric Coordinate** method for filling a triangle.
 
-Here's a visualisation of how the algorithm actually works.
-
-https://youtu.be/NbRdiLCBmbo
-
-We start at the topmost vertex and work our way downwards. There is 2 sides of the triangle that go down from this vertex. Any point in between these two point will fall within the triangle, and thus must be colored in. We can represent this is pseudocode.
-
-```
-for every row of pixels under p1:
-  for every pixel from side 1 to side 2:
-    FillPixel()
-```
-
-We keep moving downwards until one of the lines ends. This will be when we reach p2. For the rest of the triangle that lies below p2, we work our way up from the bottom back uptil p2. Take another look at the video linked and make sure it makes sense to you. 
-
-The code for this is present in the `scanline.cpp` file in this repository. Read and understand the first part. And as an exercise , try to implement the second half of the algorithm youself.
+This method loops over every pixel on the raster and checks if it lies within the triangle using a **barycentric coordinates**. You can watch my youtube video to understand all about barycentric coordinates, they're really quite useful!
