@@ -54,9 +54,9 @@ void DrawTriangle(
                 texel_x = round(current_texture_coords.x * texture_width);
                 texel_y = round(current_texture_coords.y * texture_height);
 
-                *(output_image + (i*image_width+j)*channels + 0) = *(texture_image + (texel_x*image_width+texel_y)*channels + 0);
-                *(output_image + (i*image_width+j)*channels + 1) = *(texture_image + (texel_x*image_width+texel_y)*channels + 1);
-                *(output_image + (i*image_width+j)*channels + 2) = *(texture_image + (texel_x*image_width+texel_y)*channels + 2);
+                *(output_image + (i*image_width+j)*channels + 0) = *(texture_image + (texel_y*image_width+texel_x)*channels + 0);
+                *(output_image + (i*image_width+j)*channels + 1) = *(texture_image + (texel_y*image_width+texel_x)*channels + 1);
+                *(output_image + (i*image_width+j)*channels + 2) = *(texture_image + (texel_y*image_width+texel_x)*channels + 2);
             }
         }
     }
