@@ -52,7 +52,10 @@ Images 5 , 6: Different texture coordinates and the result
 ![output](https://raw.githubusercontent.com/Bruhout/Texture-Sampling/main/images/example.png)
 
 
-## Triangle Filling : Threee methods
+## Triangle Filling : Barycentric Coordinates
 There are 3 familiar ways of drawing a triangle to the raster screen. I have covered each one in depth in blog post on my personal blog, which I will link to very soon. For this project, we will be using the **Barycentric Coordinate** method for filling a triangle.
 
 This method loops over every pixel on the raster and checks if it lies within the triangle using a **barycentric coordinates**. You can watch my youtube video to understand all about barycentric coordinates, they're really quite useful!
+
+## Linear Interpolation : LERP
+The first step is to set up a simple loop that goes over every pixel in the image and calculates the barycentric coordinates of the pixel with respect to our triangle. We can do some interesting stuff with this, like creating this colourful triangle using Linear Interpolation. Let's see how.
