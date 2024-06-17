@@ -60,4 +60,4 @@ This method loops over every pixel on the raster and checks if it lies within th
 ## Linear Interpolation : LERP
 The first step is to set up a simple loop that goes over every pixel in the image and calculates the barycentric coordinates of the pixel with respect to our triangle. We can do some interesting stuff with this, like creating this colourful triangle using Linear Interpolation. Let's see how.
 
-https://raw.githubusercontent.com/Bruhout/Texture-Sampling/main/images/lerp_output.jpg
+![lerp_output](https://raw.githubusercontent.com/Bruhout/Texture-Sampling/main/images/lerp_output.jpg)
