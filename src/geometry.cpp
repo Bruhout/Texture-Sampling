@@ -28,7 +28,7 @@ bool GetBarycentricCoords(Vec3D v1 , Vec3D v2 , Vec3D v3 , Vec3D point , Vec3D* 
     }
 }
 
-void DrawTriangle(
+void DrawTriangleTextured(
     Vec3D p1 , Vec3D p2 , Vec3D p3,
     Vec3D tp1 , Vec3D tp2 , Vec3D tp3, 
     unsigned char* output_image , int image_width , int image_height , int channels,
@@ -60,4 +60,28 @@ void DrawTriangle(
             }
         }
     }
+}
+
+
+void DrawTriangleLerped(
+	Vec3D p1 , Vec3D p2 , Vec3D p3 , 
+	unsigned char* output_image , int image_width , int image_height , int channels
+)
+{
+	double image_pixel_width = 1/(double)image_width;
+	double image_pixel_height = 1/(double)image_height;
+
+	Vec3D current_b_coords;
+	for (int i=0 ; i<image_height ; i++) 
+	{
+		for (int j=0 ; j<image_width ; j++)
+		{
+            if (GetBarycentricCoords(p1 , p2 , p3 , Vec3D(j/(double)image_width + image_pixel_width/2 , i/(double)image_height + image_pixel_height/2 , 0) , &current_b_coords))
+			{
+                *(output_image + (i*image_width+j)*channels + 0) = round(255 * current_b_coords.x);
+                *(output_image + (i*image_width+j)*channels + 1) = round(255 * current_b_coords.y);
+                *(output_image + (i*image_width+j)*channels + 2) = round(255 * current_b_coords.z);
+			}
+		}
+	}
 }

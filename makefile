@@ -1,13 +1,15 @@
 CC = g++
+CPP_VERSION = c++11
 
 main: src/main.cpp build/vec3d.o build/geometry.o
-	$(CC) -o main src/main.cpp build/vec3d.o build/geometry.o -g -std=c++11
+	$(CC) -o main src/main.cpp build/vec3d.o build/geometry.o -g -std=$(CPP_VERSION)
+
+lerp: src/lerp.cpp build/vec3d.o build/geometry.o
+	$(CC) -o lerp src/lerp.cpp build/vec3d.o build/geometry.o -g -std=$(CPP_VERSION)
 
 build/vec3d.o: src/vec3d.cpp
-	$(CC) -o build/vec3d.o src/vec3d.cpp -c -g -std=c++11
+	$(CC) -o build/vec3d.o src/vec3d.cpp -c -g -std=$(CPP_VERSION)
 
 build/geometry.o: src/geometry.cpp
-	$(CC) -o build/geometry.o src/geometry.cpp -c -g -std=c++11
+	$(CC) -o build/geometry.o src/geometry.cpp -c -g -std=$(CPP_VERSION)
 
-scanline: scanline.cpp
-	g++ -o scanline scanline.cpp -g
